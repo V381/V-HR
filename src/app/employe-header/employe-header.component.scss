@@ -1,0 +1,20 @@
+.employee-header {
+    background-color: var(--main-panel-bg);
+    flex: 1;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            color: white;
+            list-style-type: none;
+            border: 1px solid var(--main-panel-input-border);
+            padding: 1.6rem;
+            transition: 0.5s;
+            &:hover {
+                cursor: pointer;
+                background-color: var(--main-panel-header-bg);
+                border: none;
+            }
+        }
+    }
+}
