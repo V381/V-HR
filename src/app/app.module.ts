@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LeftSideBarComponent } from './left-side-bar/left-side-bar.component';
 import { LeftSideBarEmployeeInputComponent } from './left-side-bar/left-side-bar-employee-input/left-side-bar-employee-input.component';
 import { LeftSideBarSubmitNameBtnComponent } from './left-side-bar/left-side-bar-submit-name-btn/left-side-bar-submit-name-btn.component';
-import { LeftSideBarEmployeeListComponent } from './left-side-bar/left-side-bar-employee-list/left-side-bar-employee-list.component'; 
+import { LeftSideBarEmployeeListComponent } from './left-side-bar/left-side-bar-employee-list/left-side-bar-employee-list.component';
+import { EmployeHeaderComponent } from './employe-header/employe-header.component'; 
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeftSideBarEmployeeListComponent } from './left-side-bar/left-side-bar-
     LeftSideBarComponent,
     LeftSideBarEmployeeInputComponent,
     LeftSideBarSubmitNameBtnComponent,
-    LeftSideBarEmployeeListComponent
+    LeftSideBarEmployeeListComponent,
+    EmployeHeaderComponent
   ],
   imports: [
     BrowserModule,
