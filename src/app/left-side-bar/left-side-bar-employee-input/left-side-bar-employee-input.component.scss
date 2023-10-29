@@ -1,0 +1,14 @@
+input {
+    background-color: var(--main-panel-input-bg);
+    color: white;
+    border: 2px solid var(--main-panel-input-border);
+    transition: border-color 0.3s;
+    margin-top: 1rem;
+    width: 80%;
+    padding: 0.8rem;
+}
+
+input:focus {
+    border-color: var(--main-panel-input-border);
+    outline: none;
+}

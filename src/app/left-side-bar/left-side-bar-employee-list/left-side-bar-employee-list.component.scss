@@ -1,0 +1,20 @@
+
+li {
+    text-align: left;
+    padding: 0.5rem;
+    background-color: var(--main-panel-bg);
+    transition: 0.5s;
+    font-size: 1.2rem;
+    margin-left: 18px;
+    margin-top: 15px;
+    list-style-type: none;
+    border-top: 1px solid rgba(2, 7, 8, 0);
+    border-bottom: 1px solid rgba(2, 7, 8, 0);
+    word-wrap: break-word;
+    width: 80%;
+    &:hover {
+        cursor: pointer;
+        background-color: var(--main-panel-header-bg);
+        border-left: 5px solid green;
+    }
+}
