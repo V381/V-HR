@@ -4,13 +4,12 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeHeaderService {
+export class EmployeFormService {
 
   private sharedValueSubject = new BehaviorSubject<string>('');
   sharedValue$ = this.sharedValueSubject.asObservable();
-  employes: string[] = [];
 
-  addEmployeeToHeader(value: string) {
-    this.sharedValueSubject.next(value);
+  showEmployeeForm(employee: string) {
+    this.sharedValueSubject.next(employee);
   }
 }
