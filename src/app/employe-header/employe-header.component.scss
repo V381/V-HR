@@ -1,6 +1,7 @@
 .employee-header {
     background-color: var(--main-panel-bg);
     flex: 1;
+    border-bottom: 0.1px solid var(--main-panel-input-border);
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -8,12 +9,11 @@
             color: white;
             list-style-type: none;
             border: 0.2px solid var(--main-panel-input-border);
-            padding: 1.6rem;
+            padding: 1.52rem;
             transition: 0.5s;
             &:hover {
                 cursor: pointer;
                 background-color: var(--main-panel-header-bg);
-                border: none;
             }
         }
     }

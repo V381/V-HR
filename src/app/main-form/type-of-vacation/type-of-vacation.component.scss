@@ -1,0 +1,30 @@
+.type-of-vacation {
+    margin-top: 2rem;
+    color: #fff;
+    border: 0.2px solid var(--main-panel-input-border);
+    p {
+        padding: 1rem 0 1rem 1rem;
+        background-color: var(--main-panel-input-border);
+        width: 20%;
+        text-wrap: wrap;
+    }
+}
+
+.add-type-and-reason {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    button {
+        width: 50%;
+        margin-top: 1rem;
+        background-color: #255F67;
+        border: none;
+        padding: 0.5rem;
+        color: white;
+        transition: 0.5s;
+        &:hover {
+            cursor: pointer;
+            background-color: #349DA2;
+        }
+    }
+}
