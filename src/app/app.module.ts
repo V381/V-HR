@@ -8,7 +8,8 @@ import { LeftSideBarEmployeeInputComponent } from './left-side-bar/left-side-bar
 import { LeftSideBarSubmitNameBtnComponent } from './left-side-bar/left-side-bar-submit-name-btn/left-side-bar-submit-name-btn.component';
 import { LeftSideBarEmployeeListComponent } from './left-side-bar/left-side-bar-employee-list/left-side-bar-employee-list.component';
 import { EmployeHeaderComponent } from './employe-header/employe-header.component';
-import { MainFormComponent } from './main-form/main-form.component'; 
+import { MainFormComponent } from './main-form/main-form.component';
+import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-vacation.component'; 
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainFormComponent } from './main-form/main-form.component';
     LeftSideBarSubmitNameBtnComponent,
     LeftSideBarEmployeeListComponent,
     EmployeHeaderComponent,
-    MainFormComponent
+    MainFormComponent,
+    TypeOfVacationComponent
   ],
   imports: [
     BrowserModule,
