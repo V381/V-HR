@@ -1,5 +1,5 @@
 <div class="employee-header">
     <ul>
-        <li *ngFor="let employee of employees" (click)="showEmployeeForm(employee)">{{ employee }}</li>
+        <li *ngFor="let employee of employees" (click)="showEmployeeForm(employee)" [ngClass]="{ 'active':  employee === selectedItem }">{{ employee }}</li>
     </ul>
 </div>

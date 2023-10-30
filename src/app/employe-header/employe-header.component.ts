@@ -10,10 +10,11 @@ import { EmployeFormService } from '../employe-form.service';
 export class EmployeHeaderComponent {
   
   employees: string[] = [];
-  employee: string = "";
+  selectedItem: string = "";
   constructor(private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService) {
     this.employeHeaderService.sharedValue$.subscribe((value) => {
       if (value.length > 0) {
+        this.selectedItem = value;
         this.employees.push(value);
         const uniqueEmployee = new Set(this.employees);
         this.employees = Array.from(uniqueEmployee);
@@ -22,5 +23,7 @@ export class EmployeHeaderComponent {
   }
   showEmployeeForm(employee: string) {
     this.employeeFormService.showEmployeeForm(employee);
+    this.selectedItem = employee;
+    
   }
 }

@@ -9,7 +9,7 @@ li {
     margin-top: 15px;
     list-style-type: none;
     border-top: 1px solid rgba(2, 7, 8, 0);
-    border-bottom: 1px solid rgba(2, 7, 8, 0);
+    border-bottom: 1px solid rgb(59, 58, 58);
     word-wrap: break-word;
     width: 80%;
     &:hover {
@@ -17,4 +17,8 @@ li {
         background-color: var(--main-panel-header-bg);
         border-left: 5px solid green;
     }
+}
+
+.active {
+    color: red;
 }
