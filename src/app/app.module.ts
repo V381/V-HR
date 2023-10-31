@@ -11,7 +11,8 @@ import { EmployeHeaderComponent } from './employe-header/employe-header.componen
 import { MainFormComponent } from './main-form/main-form.component';
 import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-vacation.component';
 import { ToggleButtonComponent } from './left-side-bar/toggle-button/toggle-button.component'; 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VacationTypeListComponent } from './main-form/type-of-vacation/vacation-type-list/vacation-type-list.component'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployeHeaderComponent,
     MainFormComponent,
     TypeOfVacationComponent,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    VacationTypeListComponent
   ],
   imports: [
     BrowserModule,

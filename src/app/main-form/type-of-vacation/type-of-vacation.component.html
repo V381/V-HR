@@ -2,5 +2,9 @@
     <p>Reasons for absence</p>
 </div>
 <div class="add-type-and-reason">
-    <button>Add type and reason</button>
+    <button (click)="addToList()">Add type and reason</button>
+</div>
+
+<div>
+    <app-vacation-type-list [items]="list"></app-vacation-type-list>
 </div>

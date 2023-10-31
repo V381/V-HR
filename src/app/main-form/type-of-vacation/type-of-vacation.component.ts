@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./type-of-vacation.component.scss']
 })
 export class TypeOfVacationComponent {
+  list: object[] = [];
 
+  addToList() {
+    this.list.push({
+      a: 1
+    })
+  }
 }
