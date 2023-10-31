@@ -1,0 +1,23 @@
+.toggle-button {
+    position: relative;
+    button {
+        position: absolute;
+        width: auto;
+        margin-top: 1rem;
+        background-color: var(--main-panel-bg);
+        border: none;
+        padding: 0.5rem;
+        color: white;
+        transition: 0.5s;
+        z-index: 100;
+        right: -10;
+        i {
+            color:#FFF;
+            font-size: 1rem;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: #349DA2;
+        }
+    }
+}

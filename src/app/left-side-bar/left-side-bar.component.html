@@ -1,10 +1,15 @@
-<div class="container">
-    <div class="header">
-        <h1><span class="header__v">V</span></h1>
+<div class="wrapper">
+    <div class="position-of-button">
+        <app-toggle-button class="toggle-button" (toggle)="toggleLeftSideBar()"></app-toggle-button>
     </div>
-    <p class="employee">Add employee</p>
-    <app-left-side-bar-employee-input></app-left-side-bar-employee-input>
-    <app-left-side-bar-submit-name-btn></app-left-side-bar-submit-name-btn>
-    <p class="name-of-employees">Name of employees</p>
-    <app-left-side-bar-employee-list></app-left-side-bar-employee-list>
+    <div class="container" [class.slide-out]="!isLeftSideBarOpen" [class.slide-in]="isLeftSideBarOpen">
+        <div class="header">
+            <h1><span class="header__v">V</span></h1>
+        </div>
+        <p class="employee">Add employee</p>
+        <app-left-side-bar-employee-input></app-left-side-bar-employee-input>
+        <app-left-side-bar-submit-name-btn></app-left-side-bar-submit-name-btn>
+        <p class="name-of-employees">Name of employees</p>
+        <app-left-side-bar-employee-list></app-left-side-bar-employee-list>
+    </div>
 </div>
