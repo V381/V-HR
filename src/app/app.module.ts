@@ -9,7 +9,9 @@ import { LeftSideBarSubmitNameBtnComponent } from './left-side-bar/left-side-bar
 import { LeftSideBarEmployeeListComponent } from './left-side-bar/left-side-bar-employee-list/left-side-bar-employee-list.component';
 import { EmployeHeaderComponent } from './employe-header/employe-header.component';
 import { MainFormComponent } from './main-form/main-form.component';
-import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-vacation.component'; 
+import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-vacation.component';
+import { ToggleButtonComponent } from './left-side-bar/toggle-button/toggle-button.component'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-va
     LeftSideBarEmployeeListComponent,
     EmployeHeaderComponent,
     MainFormComponent,
-    TypeOfVacationComponent
+    TypeOfVacationComponent,
+    ToggleButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

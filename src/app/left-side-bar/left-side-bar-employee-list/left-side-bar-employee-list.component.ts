@@ -12,13 +12,25 @@ export class LeftSideBarEmployeeListComponent {
   sharedValue: string = '';
   names: string[] = [];
 
-  constructor(private employeeDataService: EmployeeDataService, private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService) {
+  constructor(private employeeDataService: EmployeeDataService, private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService) {}
+
+  ngOnInit(): void {
+    this.subscribeToSharedValue();
+    console.log("@@@");
+  }
+
+  private subscribeToSharedValue(): void {
     this.employeeDataService.sharedValue$.subscribe(value => {
-      this.sharedValue = value;
-      if (this.sharedValue.length > 0) {
-        this.names.unshift(this.sharedValue);
-      }
+      this.handleSharedValue(value);
     });
+  }
+
+  private handleSharedValue(value: any): void {
+    this.sharedValue = value;
+    if (this.sharedValue.length > 0) {
+      this.names.unshift(this.sharedValue);
+      this.sharedValue = "";
+    }
   }
   addEmployeeToHeader(employee: string) {
     this.employeHeaderService.addEmployeeToHeader(employee);

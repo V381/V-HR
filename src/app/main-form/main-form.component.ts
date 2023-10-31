@@ -4,8 +4,9 @@ import { EmployeFormService } from '../employe-form.service';
 @Component({
   selector: 'app-main-form',
   templateUrl: './main-form.component.html',
-  styleUrls: ['./main-form.component.scss']
+  styleUrls: ['./main-form.component.scss'],
 })
+
 export class MainFormComponent {
   employee: string = "";
   constructor(private employeeFormService: EmployeFormService) {
@@ -13,5 +14,4 @@ export class MainFormComponent {
       this.employee = val;
     });
   }
-
 }

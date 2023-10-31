@@ -1,0 +1,1 @@
+.toggle-button{position:relative}.toggle-button button{position:absolute;width:auto;margin-top:1rem;background-color:var(--main-panel-bg);border:none;padding:.5rem;color:#fff;transition:.5s;z-index:100;right:-10}.toggle-button button i{color:#fff;font-size:1rem}.toggle-button button:hover{cursor:pointer;background-color:#349da2}
