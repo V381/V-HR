@@ -8,10 +8,14 @@ import { EmployeFormService } from '../employe-form.service';
 })
 
 export class MainFormComponent {
-  employee: string = "";
+  employee: { name?: string, address?: string} = {}
   constructor(private employeeFormService: EmployeFormService) {
-    this.employeeFormService.sharedValue$.subscribe(val => {
+    this.employeeFormService.sharedValue$.subscribe((val) => {
       this.employee = val;
     });
+  }
+
+  checkIfDefined() : boolean {
+    return Object.keys(this.employee).length > 0;
   }
 }

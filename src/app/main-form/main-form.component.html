@@ -1,4 +1,4 @@
-<div *ngIf="employee.length > 0" >
+<div *ngIf="checkIfDefined()" >
     <div class="main-form-wrapper">
         <div class="left-side">
             <div class="titles">
@@ -13,9 +13,9 @@
                 <p><strong>Company:</strong></p>
             </div>
             <div class="values">
-            <p>{{ employee }}</p>
+            <p>{{ employee.name }}</p>
             <br>
-            <p>Some Address</p>
+            <input type="text" value="Enter address..." [(ngModel)]="employee.address">
             <br>
             <p>13.7.1991</p>
             <br>

@@ -15,7 +15,7 @@ export class AppComponent {
 
   constructor(private employeeForm: EmployeFormService) {
     this.employeeForm.sharedValue$.subscribe(val => {
-      if (val) {
+      if (Object.keys(val).length > 0) {
         this.isThereEmploye = true;
       }
     });

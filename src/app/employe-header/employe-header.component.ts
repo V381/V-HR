@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { EmployeHeaderService } from '../employe-header.service';
 import { EmployeFormService } from '../employe-form.service';
+import { EmployeeListService } from '../employee-list-service.service';
+
+interface Employee {
+  name: string;
+}
 
 @Component({
   selector: 'app-employe-header',
@@ -9,21 +14,27 @@ import { EmployeFormService } from '../employe-form.service';
 })
 export class EmployeHeaderComponent {
   
-  employees: string[] = [];
+  employees: Employee[] = [];
   selectedItem: string = "";
-  constructor(private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService) {
+
+  constructor(private employeHeaderService: EmployeHeaderService, private employeeListService: EmployeeListService, private employeeFormService: EmployeFormService) {
+    this.employeeListService.names$.subscribe(val => {
+        for (const employee of val) {
+          this.selectedItem = employee.name;
+        }
+    });
     this.employeHeaderService.sharedValue$.subscribe((value) => {
-      if (value.length > 0) {
-        this.selectedItem = value;
-        this.employees.push(value);
-        const uniqueEmployee = new Set(this.employees);
-        this.employees = Array.from(uniqueEmployee);
+      if (value.name) {
+        this.selectedItem = value.name;
+        // Check if the employee is not already in the array
+        if (!this.employees.some(e => e.name === value.name)) {
+          this.employees.push(value);
+        }
       }
     });
   }
-  showEmployeeForm(employee: string) {
+  showEmployeeForm(employee: Employee) {
     this.employeeFormService.showEmployeeForm(employee);
-    this.selectedItem = employee;
-    
+    this.selectedItem = employee.name;
   }
 }
