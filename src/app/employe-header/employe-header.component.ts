@@ -4,7 +4,9 @@ import { EmployeFormService } from '../employe-form.service';
 import { EmployeeListService } from '../employee-list-service.service';
 
 interface Employee {
+  id: number,
   name: string;
+  address: string
 }
 
 @Component({
@@ -15,26 +17,30 @@ interface Employee {
 export class EmployeHeaderComponent {
   
   employees: Employee[] = [];
+  uniqueEmployeeIds = new Set<number>();
   selectedItem: string = "";
 
   constructor(private employeHeaderService: EmployeHeaderService, private employeeListService: EmployeeListService, private employeeFormService: EmployeFormService) {
     this.employeeListService.names$.subscribe(val => {
-        for (const employee of val) {
-          this.selectedItem = employee.name;
-        }
+      for (const employee of val) {
+        this.selectedItem = employee.name;
+      }
     });
     this.employeHeaderService.sharedValue$.subscribe((value) => {
-      if (value.name) {
-        this.selectedItem = value.name;
-        // Check if the employee is not already in the array
-        if (!this.employees.some(e => e.name === value.name)) {
-          this.employees.push(value);
-        }
+      if (value.id && !this.uniqueEmployeeIds.has(value.id)) {
+        this.employees.push(value);
+        this.uniqueEmployeeIds.add(value.id);
       }
     });
   }
   showEmployeeForm(employee: Employee) {
-    this.employeeFormService.showEmployeeForm(employee);
-    this.selectedItem = employee.name;
+    this.employeeListService.names$.subscribe((value) => {
+      value.forEach(correctEmployee => {
+        if (employee.id === correctEmployee.id) {
+          this.employeeFormService.showEmployeeForm(correctEmployee);
+        }
+      });
+      this.selectedItem = employee.name;
+    });
   }
 }

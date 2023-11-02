@@ -53,7 +53,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
         }
     
       this.sharedValue = "";
-      this.addEmployeeToHeader(data.name);
+      // this.addEmployeeToHeader(data.name);
     });
   }
   private subscribeToNames(): void {
@@ -62,9 +62,16 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     });
   }
   addEmployeeToHeader(employee: string) {
-    this.employeHeaderService.addEmployeeToHeader({
-      name: employee
-    });
+    this.employeeListService.names$.subscribe(val => {
+      for (const employee of val) {
+        this.employeHeaderService.addEmployeeToHeader({
+          name: employee.name,
+          id: employee.id,
+          address: employee.address
+        })
+        this.employeeFormService.showEmployeeForm(employee);
+      }
+  });
     this.names.forEach((val, i) => {
       if (val.name === employee) {
         this.employeeFormService.showEmployeeForm(this.names[i]);

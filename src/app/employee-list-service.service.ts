@@ -17,4 +17,7 @@ export class EmployeeListService {
   setNames(names: Employee[]) {
     this.namesSubject.next(names);
   }
+  getNames(names: Employee[]) {
+    this.namesSubject.next(names);
+  }
 }
