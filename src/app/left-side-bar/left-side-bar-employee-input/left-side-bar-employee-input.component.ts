@@ -19,7 +19,7 @@ export class LeftSideBarEmployeeInputComponent {
   }
 
   storeEmployeeName() {
-    this.employeeDataService.setSharedValue(this.employeeName);
+    this.employeeDataService.setSharedValue({ name: this.employeeName, address: ""});
   }
 
   onInputChange() {

@@ -6,10 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class EmployeFormService {
 
-  private sharedValueSubject = new BehaviorSubject<string>('');
+  private sharedValueSubject = new BehaviorSubject<object>({});
   sharedValue$ = this.sharedValueSubject.asObservable();
 
-  showEmployeeForm(employee: string) {
-    this.sharedValueSubject.next(employee);
+  showEmployeeForm(employee: object) {
+    this.sharedValueSubject.next(employee)
   }
 }
