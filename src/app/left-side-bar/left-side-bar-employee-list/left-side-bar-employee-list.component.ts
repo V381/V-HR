@@ -3,6 +3,7 @@ import { EmployeeDataService } from 'src/app/left-side-bar-employee.service';
 import { EmployeHeaderService } from 'src/app/employe-header.service';
 import { EmployeFormService } from 'src/app/employe-form.service';
 import { EmployeeListService } from 'src/app/employee-list-service.service';
+import { EmployeeListHeader } from 'src/app/employee-header-list-service.service';
 
 interface EmployeeData {
   name: string;
@@ -23,7 +24,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     id: number = 1;
   usedIds: Set<number> = new Set()
 
-  constructor(private employeeDataService: EmployeeDataService, private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService, private employeeListService: EmployeeListService) {}
+  constructor(private employeeListHeader: EmployeeListHeader, private employeeDataService: EmployeeDataService, private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService, private employeeListService: EmployeeListService) {}
 
   ngOnInit(): void {
     this.subscribeToSharedValue();
@@ -52,8 +53,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
           });
         }
     
-      this.sharedValue = "";
-      // this.addEmployeeToHeader(data.name);
+        // this.addEmployeeToHeader(data.name);
     });
   }
   private subscribeToNames(): void {
@@ -62,6 +62,9 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     });
   }
   addEmployeeToHeader(employee: string) {
+    this.employeeListHeader.updateEmployeeList(employee)
+    this.employeeListHeader.updateEmployeHeader(employee)
+
     this.employeeListService.names$.subscribe(val => {
       for (const employee of val) {
         this.employeHeaderService.addEmployeeToHeader({
@@ -75,6 +78,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     this.names.forEach((val, i) => {
       if (val.name === employee) {
         this.employeeFormService.showEmployeeForm(this.names[i]);
+        this.sharedValue = val.name;
       }
     });
   }    

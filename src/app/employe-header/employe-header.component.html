@@ -1,6 +1,6 @@
 <div class="employee-header">
     <ul>
-      <li *ngFor="let employee of employees; let i = index" (click)="showEmployeeForm(employee)" [ngClass]="{ 'active':  employee.name === selectedItem }">
+      <li *ngFor="let employee of employees; let i = index" (click)="showEmployeeForm(employee)" [ngClass]="{ 'active':  employee.id === selectedItem.id }">
         {{ employee.name }}
       </li>
   </ul>

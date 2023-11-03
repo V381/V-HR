@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EmployeHeaderService } from '../employe-header.service';
 import { EmployeFormService } from '../employe-form.service';
 import { EmployeeListService } from '../employee-list-service.service';
+import { EmployeeListHeader } from '../employee-header-list-service.service';
 
 interface Employee {
   id: number,
@@ -20,27 +21,26 @@ export class EmployeHeaderComponent {
   uniqueEmployeeIds = new Set<number>();
   selectedItem: string = "";
 
-  constructor(private employeHeaderService: EmployeHeaderService, private employeeListService: EmployeeListService, private employeeFormService: EmployeFormService) {
-    this.employeeListService.names$.subscribe(val => {
-      for (const employee of val) {
-        this.selectedItem = employee.name;
-      }
+  constructor(private employeeListService: EmployeeListService, private employeHeaderService: EmployeHeaderService, private employeeListHeader: EmployeeListHeader, private employeeFormService: EmployeFormService) {
+    this.employeeListHeader.employeeList$.subscribe(val => {
+      this.selectedItem = val;
     });
+
     this.employeHeaderService.sharedValue$.subscribe((value) => {
       if (value.id && !this.uniqueEmployeeIds.has(value.id)) {
-        this.employees.push(value);
+        this.employees.push(value); // Updated to 'employees'
         this.uniqueEmployeeIds.add(value.id);
       }
     });
   }
   showEmployeeForm(employee: Employee) {
+    this.selectedItem = employee.name;
     this.employeeListService.names$.subscribe((value) => {
       value.forEach(correctEmployee => {
         if (employee.id === correctEmployee.id) {
           this.employeeFormService.showEmployeeForm(correctEmployee);
         }
       });
-      this.selectedItem = employee.name;
     });
-  }
+  }  
 }
