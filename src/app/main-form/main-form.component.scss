@@ -9,6 +9,14 @@
     display: flex;
 }
 
+.rigth-side {
+    padding: 0;
+    p {
+        margin-bottom: 15px;
+    }
+    width: 46%;
+}
+
 .titles {
     padding-left: 2rem;
 }
@@ -74,4 +82,8 @@ textarea {
             background-color: #349DA2;
         }
     }
+}
+
+.address {
+    margin-bottom: 17px;
 }
