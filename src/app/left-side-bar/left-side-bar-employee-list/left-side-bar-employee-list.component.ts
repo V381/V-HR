@@ -42,7 +42,6 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
         }
     
         const existingEmployee = this.names.find((employee) => employee.id === id);
-    
         if (!existingEmployee && this.sharedValue.length > 0) {
           this.usedIds.add(id);
     
@@ -52,8 +51,6 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
             address: this.sharedAddress,
           });
         }
-    
-        // this.addEmployeeToHeader(data.name);
     });
   }
   private subscribeToNames(): void {
@@ -61,22 +58,24 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
       this.names = names;
     });
   }
-  addEmployeeToHeader(employee: string) {
-    this.employeeListHeader.updateEmployeeList(employee)
-    this.employeeListHeader.updateEmployeHeader(employee)
+  addEmployeeToHeader(emp: string) {
+    this.employeeListHeader.updateEmployeeList(emp)
+    this.employeeListHeader.updateEmployeHeader(emp)
 
     this.employeeListService.names$.subscribe(val => {
       for (const employee of val) {
-        this.employeHeaderService.addEmployeeToHeader({
-          name: employee.name,
-          id: employee.id,
-          address: employee.address
-        })
+        if (employee.name === emp) {
+          this.employeHeaderService.addEmployeeToHeader({
+            name: employee.name,
+            id: employee.id,
+            address: employee.address
+          })
+        }
         this.employeeFormService.showEmployeeForm(employee);
       }
   });
     this.names.forEach((val, i) => {
-      if (val.name === employee) {
+      if (val.name === emp) {
         this.employeeFormService.showEmployeeForm(this.names[i]);
         this.sharedValue = val.name;
       }
