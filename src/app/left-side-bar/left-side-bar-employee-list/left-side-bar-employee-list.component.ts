@@ -35,24 +35,26 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     this.employeeDataService.sharedValue$.subscribe((data: EmployeeData) => {
       this.sharedValue = data.name;
       this.sharedAddress = data.address;
-    
-        let id = 1;
-        while (this.usedIds.has(id)) {
-          id++;
-        }
-    
-        const existingEmployee = this.names.find((employee) => employee.id === id);
-        if (!existingEmployee && this.sharedValue.length > 0) {
-          this.usedIds.add(id);
-    
-          this.names.unshift({
-            id: id,
-            name: this.sharedValue,
-            address: this.sharedAddress,
-          });
-        }
+  
+      let id = 1;
+      while (this.usedIds.has(id)) {
+        id++;
+      }
+  
+      const existingEmployee = this.names.find((employee) => employee.name === this.sharedValue);
+
+      if (!existingEmployee && this.sharedValue.length > 0) {
+        this.usedIds.add(id);
+  
+        this.names.unshift({
+          id: id,
+          name: this.sharedValue,
+          address: this.sharedAddress,
+        });
+      }
     });
   }
+  
   private subscribeToNames(): void {
     this.employeeListService.names$.subscribe((names) => {
       this.names = names;
@@ -61,10 +63,13 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   addEmployeeToHeader(emp: string) {
     this.employeeListHeader.updateEmployeeList(emp)
     this.employeeListHeader.updateEmployeHeader(emp)
-
+    const existingEmployee = this.names.find((employee) => employee.name === emp);
     this.employeeListService.names$.subscribe(val => {
       for (const employee of val) {
         if (employee.name === emp) {
+          if (existingEmployee) {
+            val = val.filter(name => name.name !== employee.name);
+          }
           this.employeHeaderService.addEmployeeToHeader({
             name: employee.name,
             id: employee.id,
