@@ -4,6 +4,7 @@ import { EmployeHeaderService } from 'src/app/employe-header.service';
 import { EmployeFormService } from 'src/app/employe-form.service';
 import { EmployeeListService } from 'src/app/employee-list-service.service';
 import { EmployeeListHeader } from 'src/app/employee-header-list-service.service';
+import { Employee } from 'src/app/models/employee.interface';
 
 interface EmployeeData {
   name: string;
@@ -20,11 +21,15 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   address: string = "";
   sharedValue: string = '';
   sharedAddress: string = '';
-  names: { name: string, id: number, address: string }[] = [];
-    id: number = 1;
+  names: Employee[] = []; 
   usedIds: Set<number> = new Set()
 
-  constructor(private employeeListHeader: EmployeeListHeader, private employeeDataService: EmployeeDataService, private employeHeaderService: EmployeHeaderService, private employeeFormService: EmployeFormService, private employeeListService: EmployeeListService) {}
+  constructor(
+    private employeeListHeader: EmployeeListHeader,
+    private employeeDataService: EmployeeDataService, 
+    private employeHeaderService: EmployeHeaderService, 
+    private employeeFormService: EmployeFormService, 
+    private employeeListService: EmployeeListService) {}
 
   ngOnInit(): void {
     this.subscribeToSharedValue();
@@ -50,6 +55,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
           id: id,
           name: this.sharedValue,
           address: this.sharedAddress,
+          typeOfVacation: []
         });
       }
     });
@@ -73,7 +79,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
           this.employeHeaderService.addEmployeeToHeader({
             name: employee.name,
             id: employee.id,
-            address: employee.address
+            address: employee.address,
+            typeOfVacation: []
           })
         }
         this.employeeFormService.showEmployeeForm(employee);
