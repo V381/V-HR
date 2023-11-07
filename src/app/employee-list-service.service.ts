@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Employee, VacationType } from './models/employee.interface';
 
-interface Employee {
-  id: number;
-  name: string;
-  address: string;
-}
 
 @Injectable({
   providedIn: 'root',

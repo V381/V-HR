@@ -1,23 +1,29 @@
-<div class="type-vacation-wrapper" *ngFor="let item of items">
-  <div class="delete">
-    <button><i class="fas fa-times"></i></button>
+<div *ngFor="let vacationType of items">
+  <div *ngFor="let emp of vacationType.items">
+    <div *ngIf="employee?.name === emp.name">
+      <div class="type-vacation-wrapper" *ngFor="let item of emp.typeOfVacation">
+        <div class="delete">
+          <button><i class="fas fa-times"></i></button>
+        </div>
+        <div class="date-from">
+          <input type="date">
+        </div>
+        <div class="date-to">
+          <input type="date">
+        </div>
+        <div class="type-of-vacation">
+          <input type="text">
+        </div>
+        <div class="days-taken">
+          <p>5</p>
+        </div>
+        <div class="comment">
+          <input type="text" placeholder="comment">
+        </div>
+        <div class="save">
+          <button><i class="fas fa-check"></i></button>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="date-from">
-    <input type="date">
-  </div>
-  <div class="date-to">
-    <input type="date">
-  </div>
-  <div class="type-of-vacation">
-    <input type="text">
-  </div>
-  <div class="days-taken">
-    <p>5</p>
-  </div>
-  <div class="comment">
-    <input type="text" placeholder="comment">
-  </div>
-  <div class="save">
-    <button><i class="fas fa-check"></i></button>
-  </div>
-</div>

@@ -28,7 +28,7 @@ export class EmployeHeaderComponent {
 
     this.employeHeaderService.sharedValue$.subscribe((value) => {
       if (value.id && !this.uniqueEmployeeIds.has(value.id)) {
-        this.employees.push(value); // Updated to 'employees'
+        this.employees.push(value);
         this.uniqueEmployeeIds.add(value.id);
       }
     });

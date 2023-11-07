@@ -6,5 +6,7 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./vacation-type-list.component.scss']
 })
 export class VacationTypeListComponent {
-  @Input() items: object[] = [];
+  @Input() items: any;
+  @Input() employee: any;
 }
+
