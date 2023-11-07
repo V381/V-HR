@@ -70,6 +70,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     this.employeeListHeader.updateEmployeeList(emp)
     this.employeeListHeader.updateEmployeHeader(emp)
     const existingEmployee = this.names.find((employee) => employee.name === emp);
+    
     this.employeeListService.names$.subscribe(val => {
       for (const employee of val) {
         if (employee.name === emp) {

@@ -7,5 +7,6 @@ import { Component,Input } from '@angular/core';
 })
 export class VacationTypeListComponent {
   @Input() items: any;
+  @Input() employee: any;
 }
 

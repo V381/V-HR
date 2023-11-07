@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EmployeeListService } from 'src/app/employee-list-service.service';
 import { Employee, VacationType } from 'src/app/models/employee.interface';
+import { EmployeHeaderService } from 'src/app/employe-header.service';
 
 @Component({
   selector: 'app-type-of-vacation',
@@ -8,11 +9,23 @@ import { Employee, VacationType } from 'src/app/models/employee.interface';
   styleUrls: ['./type-of-vacation.component.scss']
 })
 export class TypeOfVacationComponent {
-  list: { type: string; items: Employee[] }[] = [];
   newVacationType: VacationType = { type: 'New Type', items: [] };
   selectedEmployee: Employee | null = null;
+  list: { type: string; items: Employee[] }[] = [];
 
-  constructor(private employeeListService: EmployeeListService) {
+  constructor(private employeeListService: EmployeeListService, private employeHeaderService: EmployeHeaderService) {
+    this.employeHeaderService.sharedValue$.subscribe((val) => {
+      if (val) {
+        if (!this.selectedEmployee) {
+          this.selectedEmployee = val;
+        } 
+        const selectedEmployee = this.findEmployeeByName(val);
+        if (selectedEmployee) {
+          this.selectEmployee(selectedEmployee);
+        }
+      } 
+    });
+
     this.addToList();
   }
 
@@ -23,11 +36,12 @@ export class TypeOfVacationComponent {
       }
     });
   }
-  
+
   private transformToExpectedStructure(employees: Employee[]): { type: string; items: Employee[] }[] {
-    const type = 'VacationTypeA'; 
+    const type = 'VacationTypeA';
     return [{ type, items: employees }];
   }
+
   addNewVacationType() {
     if (this.list.length > 0) {
       this.list.forEach((vacationType) => {
@@ -42,5 +56,20 @@ export class TypeOfVacationComponent {
     } else {
       this.list.push({ type: "dummyTestItem", items: [] });
     }
+  }
+
+  selectEmployee(employee: Employee) {
+    this.selectedEmployee = employee;
+  }
+
+  private findEmployeeByName(emp: Employee): Employee | null {
+    for (const vacationType of this.list) {
+      for (const employee of vacationType.items) {
+        if (employee.name === emp.name) {
+          return employee;
+        }
+      }
+    }
+    return null;
   }
 }
