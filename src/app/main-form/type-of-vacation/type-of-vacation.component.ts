@@ -43,20 +43,14 @@ export class TypeOfVacationComponent {
   }
 
   addNewVacationType() {
-    if (this.list.length > 0) {
-      this.list.forEach((vacationType) => {
-        vacationType.items.forEach((employee) => {
-          if (!employee.typeOfVacation) {
-            employee.typeOfVacation = [];
-          }
-          const newVacationType = { type: this.newVacationType.type, items: [] };
-          employee.typeOfVacation.push(newVacationType);
-        });
-      });
-    } else {
-      this.list.push({ type: "dummyTestItem", items: [] });
+      if (this.selectedEmployee) {
+        if (!this.selectedEmployee.typeOfVacation) {
+          this.selectedEmployee.typeOfVacation = [];
+        }
+        const newVacationType = { type: this.newVacationType.type, items: [] };
+        this.selectedEmployee.typeOfVacation.push(newVacationType);
+      }
     }
-  }
 
   selectEmployee(employee: Employee) {
     this.selectedEmployee = employee;
