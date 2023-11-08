@@ -5,6 +5,7 @@ import { EmployeHeaderService } from 'src/app/employe-header.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-type-of-vacation',
   templateUrl: './type-of-vacation.component.html',
