@@ -48,6 +48,7 @@ export class EmployeHeaderComponent implements OnDestroy {
         value.forEach((correctEmployee) => {
           if (employee.id === correctEmployee.id) {
             this.employeeFormService.showEmployeeForm(correctEmployee);
+            this.employeeListHeader.updateEmployeeTypeOfVacation(correctEmployee);
           }
         });
       });

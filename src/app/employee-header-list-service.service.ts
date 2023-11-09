@@ -12,11 +12,18 @@ export class EmployeeListHeader {
   private employeHeaderSource = new BehaviorSubject<any>(null);
   employeHeader$ = this.employeHeaderSource.asObservable();
 
+  private typeOfVacationSource = new BehaviorSubject<any>(null);
+  typeOfVacation$ = this.typeOfVacationSource.asObservable();
+
   updateEmployeeList(employeeList: any) {
     this.employeeListSource.next(employeeList);
   }
 
   updateEmployeHeader(headerData: any) {
     this.employeHeaderSource.next(headerData);
+  }
+
+  updateEmployeeTypeOfVacation(typeOfVacation: any) {
+    this.typeOfVacationSource.next(typeOfVacation);
   }
 }
