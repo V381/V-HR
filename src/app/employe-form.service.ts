@@ -12,4 +12,7 @@ export class EmployeFormService {
   showEmployeeForm(employee: object) {
     this.sharedValueSubject.next(employee)
   }
+  closeForm() {
+    this.sharedValueSubject.next({});
+  }
 }
