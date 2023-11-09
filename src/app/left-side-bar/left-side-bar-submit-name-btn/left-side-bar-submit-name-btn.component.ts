@@ -14,7 +14,6 @@ export class LeftSideBarSubmitNameBtnComponent {
 
   addEmployee() {
     this.storedInputValue = this.employeeDataService.getEmployeeValue();
-    this.employeeDataService.setSharedValue({ name: this.storedInputValue, address: this.address 
-    });
+    this.employeeDataService.setSharedValue({ name: this.storedInputValue, address: this.address });
     }
 }

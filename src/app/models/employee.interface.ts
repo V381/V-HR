@@ -21,4 +21,5 @@ export interface Employee {
   name: string;
   address: string;
   typeOfVacation?: VacationType[]; 
+  isFiltered?: boolean;
 }

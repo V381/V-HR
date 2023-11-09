@@ -12,7 +12,7 @@ import { MainFormComponent } from './main-form/main-form.component';
 import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-vacation.component';
 import { ToggleButtonComponent } from './left-side-bar/toggle-button/toggle-button.component'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VacationTypeListComponent } from './vacation-type-list/vacation-type-list.component'; 
+import { VacationTypeListComponent } from './vacation-type-list/vacation-type-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { VacationTypeListComponent } from './vacation-type-list/vacation-type-li
     MainFormComponent,
     TypeOfVacationComponent,
     ToggleButtonComponent,
-    VacationTypeListComponent
+    VacationTypeListComponent,
   ],
   imports: [
     BrowserModule,

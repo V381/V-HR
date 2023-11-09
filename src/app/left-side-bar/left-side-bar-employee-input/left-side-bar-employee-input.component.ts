@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EmployeeDataService } from 'src/app/left-side-bar-employee.service';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -11,7 +11,8 @@ import { Subject } from 'rxjs';
 export class LeftSideBarEmployeeInputComponent {
   employeeName: string = "";
   private inputChange = new Subject<string>();
-
+  @Input() placeholderText: string = "";
+ 
   constructor(private employeeDataService: EmployeeDataService) {
     this.inputChange.pipe(debounceTime(0)).subscribe(value => {
       this.employeeDataService.setEmployeeValue(value);
@@ -22,7 +23,7 @@ export class LeftSideBarEmployeeInputComponent {
     this.employeeDataService.setSharedValue({ name: this.employeeName, address: ""});
   }
 
-  onInputChange() {
+  setEmployee() {
     this.inputChange.next(this.employeeName);
   }
 }
