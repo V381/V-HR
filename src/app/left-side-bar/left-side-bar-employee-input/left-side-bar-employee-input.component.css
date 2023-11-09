@@ -1,1 +1,1 @@
-input{background-color:var(--main-panel-input-bg);color:#fff;border:2px solid var(--main-panel-input-border);transition:border-color .3s;margin-top:1rem;width:80%;padding:.8rem}input:focus{border-color:var(--main-panel-input-border);outline:none}
+input{background-color:var(--main-panel-input-bg);color:#fff;border:2px solid var(--main-panel-input-border);transition:border-color .3s;margin-top:1rem;width:80%;padding:.5rem;text-align:center}input:focus{border-color:var(--main-panel-input-border);outline:none}

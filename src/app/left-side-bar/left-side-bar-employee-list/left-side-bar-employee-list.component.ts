@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { EmployeeDataService } from 'src/app/left-side-bar-employee.service';
 import { EmployeHeaderService } from 'src/app/employe-header.service';
 import { EmployeFormService } from 'src/app/employe-form.service';
@@ -23,17 +23,32 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   sharedAddress: string = '';
   names: Employee[] = []; 
   usedIds: Set<number> = new Set()
+  filteredNames: Employee[] = [];
+  @Input() namesToFilter: Employee[] = [];
+  filteredEmployees: Employee[] = [];
+  searchText: string = "";
 
   constructor(
     private employeeListHeader: EmployeeListHeader,
     private employeeDataService: EmployeeDataService, 
     private employeHeaderService: EmployeHeaderService, 
-    private employeeFormService: EmployeFormService, 
-    private employeeListService: EmployeeListService) {}
+    private employeeFormService: EmployeFormService,
+    private employeeListService: EmployeeListService) {
+      
+    }
 
   ngOnInit(): void {
     this.subscribeToSharedValue();
     this.subscribeToNames();
+    this.employeeListService.employees$.subscribe(employees => {
+      this.filteredEmployees = employees;
+    });
+
+  }
+  filterEmployees() {
+    this.names.forEach(employee => {
+      employee.isFiltered = !employee.name.toLowerCase().includes(this.searchText.toLowerCase());
+    });
   }
 
   private subscribeToSharedValue(): void {
