@@ -29,31 +29,51 @@ export class EmployeHeaderComponent implements OnDestroy {
       .subscribe((val) => {
         this.selectedItem = val;
       });
-
-    this.employeHeaderService.sharedValue$
+      this.employeHeaderService.sharedValue$
       .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe((value) => {
         if (value.id && !this.uniqueEmployeeIds.has(value.id)) {
           this.employees.push(value);
           this.uniqueEmployeeIds.add(value.id);
-        }
+        } 
       });
   }
 
   showEmployeeForm(employee: Employee) {
     this.selectedItem = employee.name;
     this.employeeListService.names$
-      .pipe(takeUntil(this.ngUnsubscribe$))
-      .subscribe((value) => {
-        value.forEach((correctEmployee) => {
-          if (employee.id === correctEmployee.id) {
+        .pipe(takeUntil(this.ngUnsubscribe$))
+        .subscribe((value) => {
+          const correctEmployee = value.find(emp => emp.id === employee.id);
+
+          if (correctEmployee) {
             this.employeeFormService.showEmployeeForm(correctEmployee);
             this.employeeListHeader.updateEmployeeTypeOfVacation(correctEmployee);
-          }
-        });
-      });
+          } 
+    });
   }
 
+  removeEmployeeFromHeader(employee: Employee) {
+    this.employeHeaderService.clearHeader();
+    if (this.selectedItem) {
+      const removedIndex = this.employees.findIndex((emp) => emp.id === employee.id);
+      if (removedIndex !== -1) {
+        this.employees.splice(removedIndex, 1);
+        this.uniqueEmployeeIds.delete(employee.id);
+        if (this.employees.length > 0) {
+          let nextIndex = removedIndex;
+          if (nextIndex >= this.employees.length) {
+            nextIndex = this.employees.length - 1;
+          }
+          this.showEmployeeForm(this.employees[nextIndex]);
+        } else {
+          this.employeeFormService.closeForm();
+        }
+      }
+    }
+  }
+  
+  
   ngOnDestroy() {
     this.ngUnsubscribe$.next();
     this.ngUnsubscribe$.complete();

@@ -2,6 +2,7 @@
   <ul>
     <li *ngFor="let employee of employees; let i = index" (click)="showEmployeeForm(employee)" [ngClass]="{ 'active':  employee.name === selectedItem }">
       {{ employee.name }}
+      <i class="fas fa-times" (click)="removeEmployeeFromHeader(employee)"></i>
     </li>
 </ul>
 </div>

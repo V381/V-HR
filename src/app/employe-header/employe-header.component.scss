@@ -7,6 +7,7 @@
         flex-wrap: wrap;
         justify-content: right;
         li {
+            position: relative;
             color: white;
             list-style-type: none;
             border: 0.2px solid var(--main-panel-input-border);
@@ -15,6 +16,17 @@
             &:hover {
                 cursor: pointer;
                 background-color: var(--main-panel-header-bg);
+            }
+            i {
+                color: red;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                transform: 0.5s;
+                &:hover {
+                    cursor: pointer;
+                    color: lighten($color: red, $amount: 15%);
+                }
             }
         }
     }
