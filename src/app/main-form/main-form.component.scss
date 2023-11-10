@@ -104,18 +104,35 @@ textarea {
 
 .set-columns {
     display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 16px;
     padding: 1rem;
+    align-items: center; 
     input {
         width: 99%;
         padding: 0.3rem;
     }
     p {
         color: #fff;
+        text-align: center;
     }
 }
 
 .m-top {
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.ml-10 {
+    margin-left: 1rem;
+}
+
+.ml-5 {
+    margin-left: 0.5rem;
+}
+
+.message {
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    color: #fff;
 }
