@@ -87,7 +87,7 @@ export class MainFormComponent implements OnDestroy {
     const toDate = this.parseDate(reason.to);
 
     if (!fromDate || !toDate) {
-      return { daysTaken: 0, remainingDays: 0 }; // Handle the error as needed
+      return { daysTaken: 0, remainingDays: 0 }; 
     }
   
     const daysDiff = this.calculateDaysDiffWithoutWeekends(fromDate, toDate);
