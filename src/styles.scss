@@ -1,2 +1,9 @@
 @import url(reset.scss);
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "shared/variables";
+
+.mat-mdc-dialog-container
+.mdc-dialog__container
+.mat-mdc-dialog-surface {
+    background-color: var(--main-panel-bg);
+}

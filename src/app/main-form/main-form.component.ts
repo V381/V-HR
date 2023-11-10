@@ -36,6 +36,7 @@ export class MainFormComponent implements OnDestroy {
     this.employeeForm = this.fb.group({
       reasons: this.fb.array([]),
     });
+    
   }
 
   ngOnDestroy(): void {

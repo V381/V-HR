@@ -1,1 +1,1 @@
-@import"reset.scss"
+@import"reset.scss";@import"~@angular/material/prebuilt-themes/indigo-pink.css";:root{--main-panel-bg: #201E1F;--main-panel-header-bg: #255F67;--main-panel-input-bg: #594E4F;--main-panel-input-border: #255F67;--main-panel-button-bg: #255F67}.mat-mdc-dialog-container .mdc-dialog__container .mat-mdc-dialog-surface{background-color:var(--main-panel-bg)}

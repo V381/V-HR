@@ -10,3 +10,8 @@
     transform: translateX(0);
     overflow: auto;
 }
+
+
+.custom-dialog-container .mat-dialog-container {
+    background-color: red !important;
+}

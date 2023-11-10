@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VacationTypeListComponent } from './vacation-type-list/vacation-type-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { IntroDescriptionComponent } from './intro-description/intro-description.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { DatePipe } from '@angular/common';
     TypeOfVacationComponent,
     ToggleButtonComponent,
     VacationTypeListComponent,
+    IntroDescriptionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
