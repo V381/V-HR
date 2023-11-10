@@ -28,10 +28,8 @@ export interface Employee {
 }
 
 export interface TypeAndReason {
-  id: number;
-  items: {
+    id: number;
     from: string;
     to: string;
     type: string;
-  }[];
 }

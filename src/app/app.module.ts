@@ -13,6 +13,7 @@ import { TypeOfVacationComponent } from './main-form/type-of-vacation/type-of-va
 import { ToggleButtonComponent } from './left-side-bar/toggle-button/toggle-button.component'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VacationTypeListComponent } from './vacation-type-list/vacation-type-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { VacationTypeListComponent } from './vacation-type-list/vacation-type-li
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -46,7 +46,9 @@
         <div *ngIf="checkIfDefined()">
             <div class="button-wrapper">
               <div class="save m-top">
-                <button (click)="addTypeAndReason()">Click to add date from, to and reason</button>
+                <button (click)="addTypeAndReason()">
+                  Click to add date from, to and reason
+                </button>
               </div>
             </div>
           
@@ -56,24 +58,21 @@
               <div><p>Type:</p></div>
             </div>
           
-            <div *ngFor="let reason of typeAndReason">
-                <div *ngFor="let item of reason.items" class="set-columns">
+            <div *ngIf="checkIfDefined()">
+              <div *ngFor="let reason of reasonsArray">
+                <div class="set-columns">
                   <div>
-                    <input type="date" [(ngModel)]="item.from">
+                    <input type="date" [(ngModel)]="reason.from">
                   </div>
                   <div>
-                    <input type="date" [(ngModel)]="item.to">
+                    <input type="date" [(ngModel)]="reason.to">
                   </div>
                   <div>
-                    <input type="text" placeholder="Type..." [(ngModel)]="item.type">
+                    <input type="text" placeholder="Type..." [(ngModel)]="reason.type">
                   </div>
                 </div>
               </div>
-              
-              
-              
+            </div>
           </div>
-          
-        <!-- <app-type-of-vacation></app-type-of-vacation> -->
     </div>
 </div>
