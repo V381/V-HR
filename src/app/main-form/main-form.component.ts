@@ -27,6 +27,7 @@ export class MainFormComponent implements OnDestroy {
   daysLeft: number = 0;
   totalDaysTaken: number = 0;
   totalRemainingDays: number = 0;
+  showVacationDaysMessage: boolean = false;
   
   constructor(private employeeFormService: EmployeFormService, private fb: FormBuilder, private datePipe: DatePipe) {
     this.employeeSubscription = this.employeeFormService.sharedValue$.subscribe((val) => {
@@ -161,6 +162,15 @@ export class MainFormComponent implements OnDestroy {
   
   onDateChange() {
     this.dateValuesChanged = true;
+  }
+
+  isNumberOfVacationDaysPopulated(): boolean {
+    if (!this.employee.numberOfVacationDays) {
+      this.showVacationDaysMessage = true;
+      return false;
+    }
+    this.showVacationDaysMessage = false;
+    return true;
   }
   
 }
