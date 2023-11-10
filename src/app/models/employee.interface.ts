@@ -23,4 +23,15 @@ export interface Employee {
   typeOfVacation?: VacationType[]; 
   isFiltered?: boolean;
   numberOfVacationDays: string;
+  company: string;
+  dateOfBirth: Date;
+}
+
+export interface TypeAndReason {
+  id: number;
+  items: {
+    from: string;
+    to: string;
+    type: string;
+  }[];
 }

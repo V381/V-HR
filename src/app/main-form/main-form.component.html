@@ -17,29 +17,63 @@
             <br>
             <input type="text" class="address" value="Enter address..." [(ngModel)]="employee.address">
             <br>
-            <p>13.7.1991</p>
+            <input type="date" [(ngModel)]="employee.dateOfBirth">
+            <p></p>
             <br>
             <input type="number" class="address" [(ngModel)]="employee.numberOfVacationDays">
-            <p>Seavus/Qinshift</p>
+            <p></p>
+            <input type="text" class="address" value="Enter company.." [(ngModel)]="employee.company">
             </div>
         </div>
         <div class="rigth-side">
-            <p><strong>Number of taken days:</strong> 15</p>
+            <p><strong>Number of taken days:</strong>0</p>
             <p><strong>Comment:</strong></p>
-            <input type="text" class="address">
+            <input type="text" class="address" placeholder="Enter comment...">
             <p></p>
             <p><strong>Days left:</strong> 0</p>
         </div>
     </div>
     <div class="button-wrapper">
-        <div class="cancel">
-            <button>Cancel</button>
-        </div>
         <div class="save">
             <button>Save</button>
         </div>
     </div>
-    <div class="type-of-vacation">
-        <app-type-of-vacation></app-type-of-vacation>
+    <div>
+        <div class="type-of-vacation">
+            <p>Reasons for absence</p>
+        </div>
+        
+        <div *ngIf="checkIfDefined()">
+            <div class="button-wrapper">
+              <div class="save m-top">
+                <button (click)="addTypeAndReason()">Click to add date from, to and reason</button>
+              </div>
+            </div>
+          
+            <div class="set-columns">
+              <div><p>From:</p></div>
+              <div><p>To:</p></div>
+              <div><p>Type:</p></div>
+            </div>
+          
+            <div *ngFor="let reason of typeAndReason">
+                <div *ngFor="let item of reason.items" class="set-columns">
+                  <div>
+                    <input type="date" [(ngModel)]="item.from">
+                  </div>
+                  <div>
+                    <input type="date" [(ngModel)]="item.to">
+                  </div>
+                  <div>
+                    <input type="text" placeholder="Type..." [(ngModel)]="item.type">
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+          </div>
+          
+        <!-- <app-type-of-vacation></app-type-of-vacation> -->
     </div>
 </div>

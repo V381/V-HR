@@ -51,23 +51,6 @@ textarea {
     }
 }
 
-.cancel {
-    width: 50%;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    button {
-        background-color: darkred;
-        border: none;
-        padding: 0.5rem;
-        color: white;
-        transition: 0.5s;
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(207, 15, 15);
-        }
-    }
-}
-
 .save {
     width: 50%;
     margin-right: 2rem;
@@ -86,4 +69,53 @@ textarea {
 
 .address {
     margin-bottom: 17px;
+}
+
+.type-of-vacation {
+    margin-top: 2rem;
+    color: #fff;
+    border: 0.2px solid var(--main-panel-input-border);
+    p {
+        padding: 1rem 0 1rem 1rem;
+        background-color: var(--main-panel-input-border);
+        width: 20%;
+        text-wrap: wrap;
+    }
+}
+
+.add-type-and-reason {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    button {
+        width: 50%;
+        margin-top: 1rem;
+        background-color: #255F67;
+        border: none;
+        padding: 0.5rem;
+        color: white;
+        transition: 0.5s;
+        &:hover {
+            cursor: pointer;
+            background-color: #349DA2;
+        }
+    }
+}
+
+.set-columns {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px;
+    padding: 1rem;
+    input {
+        width: 99%;
+        padding: 0.3rem;
+    }
+    p {
+        color: #fff;
+    }
+}
+
+.m-top {
+    margin-top: 2rem;
 }
