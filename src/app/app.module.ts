@@ -14,6 +14,7 @@ import { ToggleButtonComponent } from './left-side-bar/toggle-button/toggle-butt
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VacationTypeListComponent } from './vacation-type-list/vacation-type-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

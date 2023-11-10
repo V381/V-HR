@@ -104,7 +104,7 @@ textarea {
 
 .set-columns {
     display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 16px;
     padding: 1rem;
     input {
@@ -113,6 +113,7 @@ textarea {
     }
     p {
         color: #fff;
+        text-align: center;
     }
 }
 

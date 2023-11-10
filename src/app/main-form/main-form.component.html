@@ -20,18 +20,19 @@
             <input type="date" [(ngModel)]="employee.dateOfBirth">
             <p></p>
             <br>
-            <input type="number" class="address" [(ngModel)]="employee.numberOfVacationDays">
+            <input type="number" class="address" min="0" [(ngModel)]="employee.numberOfVacationDays">
             <p></p>
             <input type="text" class="address" value="Enter company.." [(ngModel)]="employee.company">
             </div>
         </div>
         <div class="rigth-side">
-            <p><strong>Number of taken days:</strong>0</p>
-            <p><strong>Comment:</strong></p>
-            <input type="text" class="address" placeholder="Enter comment...">
-            <p></p>
-            <p><strong>Days left:</strong> 0</p>
+          <p><strong>Total number of days taken:</strong>{{ calculateTotalDaysAndRemaining().totalDaysTaken }}</p>
+          <p><strong>Comment:</strong></p>
+          <input type="text" class="address" placeholder="Enter comment...">
+          <p></p>
+          <p><strong>Total days of vacation left:</strong>{{ calculateTotalDaysAndRemaining().totalRemainingDays }}</p>
         </div>
+        
     </div>
     <div class="button-wrapper">
         <div class="save">
@@ -43,7 +44,7 @@
             <p>Reasons for absence</p>
         </div>
         
-        <div *ngIf="checkIfDefined()">
+        <div>
             <div class="button-wrapper">
               <div class="save m-top">
                 <button (click)="addTypeAndReason()">
@@ -55,24 +56,27 @@
             <div class="set-columns">
               <div><p>From:</p></div>
               <div><p>To:</p></div>
-              <div><p>Type:</p></div>
+              <div><p>Days Taken:</p></div> 
+              <div><p>Reason:</p></div>
             </div>
           
-            <div *ngIf="checkIfDefined()">
-              <div *ngFor="let reason of reasonsArray">
-                <div class="set-columns">
-                  <div>
-                    <input type="date" [(ngModel)]="reason.from">
-                  </div>
-                  <div>
-                    <input type="date" [(ngModel)]="reason.to">
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Type..." [(ngModel)]="reason.type">
-                  </div>
+            <div *ngFor="let reason of reasonsArray">
+              <div class="set-columns">
+                <div>
+                  <input type="date" [(ngModel)]="reason.from" (ngModelChange)="onDateChange()">
+                </div>
+                <div>
+                  <input type="date" [(ngModel)]="reason.to" (ngModelChange)="onDateChange()">
+                </div>
+                <div>
+                  <p>{{ calculateDaysLeft(reason) }}</p>
+                </div>
+                <div>
+                  <input type="text" placeholder="Enter reason..." [(ngModel)]="reason.type">
                 </div>
               </div>
             </div>
+            
+            </div>
           </div>
     </div>
-</div>
