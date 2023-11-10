@@ -8,7 +8,7 @@ import { EmployeFormService } from '../employe-form.service';
 })
 
 export class MainFormComponent {
-  employee: { name?: string, address?: string} = {}
+  employee: { name?: string, address?: string, numberOfVacationDays?: string} = {}
   constructor(private employeeFormService: EmployeFormService) {
     this.employeeFormService.sharedValue$.subscribe((val) => {
       this.employee = val;

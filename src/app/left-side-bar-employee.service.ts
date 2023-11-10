@@ -6,7 +6,7 @@ import { Employee } from './models/employee.interface';
   providedIn: 'root'
 })
 export class EmployeeDataService {
-  private sharedValueSubject = new BehaviorSubject<{ name: string, address: string }>({ name: '', address: '' });
+  private sharedValueSubject = new BehaviorSubject<{ name: string, address: string, numberOfVacationDays: string }>({ name: '', address: '', numberOfVacationDays: "" });
   sharedValue$ = this.sharedValueSubject.asObservable();
   private employeeValue: string = '';
   private sharedAddressSubject = new BehaviorSubject<string>("");
@@ -14,7 +14,7 @@ export class EmployeeDataService {
   private employeesSubject = new BehaviorSubject<Employee[]>([]);
   employees$ = this.employeesSubject.asObservable();
 
-  setSharedValue(data: { name: string, address: string }) {
+  setSharedValue(data: { name: string, address: string, numberOfVacationDays: string,}) {
     this.sharedValueSubject.next(data);
   }
 

@@ -22,4 +22,5 @@ export interface Employee {
   address: string;
   typeOfVacation?: VacationType[]; 
   isFiltered?: boolean;
+  numberOfVacationDays: string;
 }

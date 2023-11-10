@@ -9,11 +9,12 @@ import { EmployeeDataService } from 'src/app/left-side-bar-employee.service';
 export class LeftSideBarSubmitNameBtnComponent {
   storedInputValue: string = '';
   address: string = "";
+  numberOfVacationDays: string = ""
 
   constructor(private employeeDataService: EmployeeDataService) {}
 
   addEmployee() {
     this.storedInputValue = this.employeeDataService.getEmployeeValue();
-    this.employeeDataService.setSharedValue({ name: this.storedInputValue, address: this.address });
+    this.employeeDataService.setSharedValue({ name: this.storedInputValue, address: this.address, numberOfVacationDays: this.numberOfVacationDays });
     }
 }

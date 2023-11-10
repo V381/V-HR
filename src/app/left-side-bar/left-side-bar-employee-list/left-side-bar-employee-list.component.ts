@@ -27,6 +27,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   @Input() namesToFilter: Employee[] = [];
   filteredEmployees: Employee[] = [];
   searchText: string = "";
+  numberOfVacationDays: string = '';
 
   constructor(
     private employeeListHeader: EmployeeListHeader,
@@ -70,7 +71,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
           id: id,
           name: this.sharedValue,
           address: this.sharedAddress,
-          typeOfVacation: []
+          typeOfVacation: [],
+          numberOfVacationDays: this.numberOfVacationDays
         });
       }
     });
@@ -96,7 +98,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
             name: employee.name,
             id: employee.id,
             address: employee.address,
-            typeOfVacation: []
+            typeOfVacation: [],
+            numberOfVacationDays: employee.numberOfVacationDays
           })
         }
         this.employeeFormService.showEmployeeForm(employee);
