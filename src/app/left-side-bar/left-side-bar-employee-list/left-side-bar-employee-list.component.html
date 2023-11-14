@@ -6,7 +6,7 @@
   <li *ngIf="!employee.isFiltered" (click)="addEmployeeToHeader(employee.name)" [ngClass]="{'removed-bg': employee.removed, 'checked-bg': employee.checked}">
     {{ employee.name }}
     <span (click)="toggleEmployee(employee)">
-      <i [ngClass]="{'fa': true, 'fa-times': !employee.checked, 'fas fa-check checked': employee.checked}"></i>
+      <i [ngClass]="{'fa': true, 'fa-times': !employee.checked, 'fas fa-check checked': employee.checked}" ></i>
     </span>
   </li>
 </ng-container>
