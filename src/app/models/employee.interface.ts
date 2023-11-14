@@ -25,6 +25,7 @@ export interface Employee {
   numberOfVacationDays: string;
   company: string;
   dateOfBirth: Date;
+  comment: string;
 }
 
 export interface TypeAndReason {

@@ -30,6 +30,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   numberOfVacationDays: string = '';
   company: string = '';
   dateOfBirth: Date = new Date()
+  comment: string = '';
 
   constructor(
     private employeeListHeader: EmployeeListHeader,
@@ -76,7 +77,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
           typeOfVacation: [],
           numberOfVacationDays: this.numberOfVacationDays,
           company: this.company,
-          dateOfBirth: this.dateOfBirth
+          dateOfBirth: this.dateOfBirth,
+          comment: this.comment
         });
       }
     });
@@ -105,7 +107,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
             typeOfVacation: [],
             numberOfVacationDays: employee.numberOfVacationDays,
             company: employee.company,
-            dateOfBirth: employee.dateOfBirth
+            dateOfBirth: employee.dateOfBirth,
+            comment: employee.comment 
           })
         }
         this.employeeFormService.showEmployeeForm(employee);

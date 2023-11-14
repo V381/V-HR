@@ -18,7 +18,8 @@ export class MainFormComponent implements OnDestroy {
     address: '',
     numberOfVacationDays: '',
     dateOfBirth: new Date(),
-    company: ''
+    company: '',
+    comment: ""
   };
   employeeForm!: FormGroup;
   typeAndReasons: { [key: string]: TypeAndReason[] } = {};

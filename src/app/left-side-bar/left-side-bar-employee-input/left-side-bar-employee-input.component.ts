@@ -20,7 +20,7 @@ export class LeftSideBarEmployeeInputComponent {
   }
 
   storeEmployeeName() {
-    this.employeeDataService.setSharedValue({ name: this.employeeName, address: "", numberOfVacationDays: "", company: ""});
+    this.employeeDataService.setSharedValue({ name: this.employeeName, address: "", numberOfVacationDays: "", company: "", comment: ""});
   }
 
   setEmployee() {

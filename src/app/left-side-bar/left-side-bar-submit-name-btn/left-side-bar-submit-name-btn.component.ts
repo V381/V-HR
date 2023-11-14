@@ -11,13 +11,14 @@ export class LeftSideBarSubmitNameBtnComponent {
   address: string = "";
   numberOfVacationDays: string = ""
   company: string = "";
+  comment: string = "";
 
   constructor(private employeeDataService: EmployeeDataService) {}
 
   addEmployee() {
     this.storedInputValue = this.employeeDataService.getEmployeeValue();
     this.employeeDataService.setSharedValue(
-      { name: this.storedInputValue, address: this.address, numberOfVacationDays: this.numberOfVacationDays, company: this.company }
+      { name: this.storedInputValue, address: this.address, numberOfVacationDays: this.numberOfVacationDays, company: this.company, comment: "" }
 
       );
     }

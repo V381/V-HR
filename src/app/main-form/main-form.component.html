@@ -28,7 +28,7 @@
     <div class="rigth-side">
       <p><strong>Total number of days taken:</strong><span class="ml-5">{{calculateTotalDaysAndRemaining().totalDaysTaken }}</span></p>
       <p><strong>Comment:</strong></p>
-      <input type="text" class="address" placeholder="Enter comment...">
+      <input type="text" class="address" placeholder="Enter comment..." [(ngModel)]="employee.comment">
       <p></p>
       <p><strong>Total days of vacation left:</strong><span class="ml-10">{{calculateTotalDaysAndRemaining().totalRemainingDays }}</span></p>
     </div>
