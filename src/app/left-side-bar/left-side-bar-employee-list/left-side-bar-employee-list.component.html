@@ -2,11 +2,11 @@
 <input type="text" placeholder="Search for the employee..." [(ngModel)]="searchText" (input)="filterEmployees()">
 
 
-<ul>
-    <ng-container *ngFor="let employee of names">
-      <li (click)="addEmployeeToHeader(employee.name)" *ngIf="!employee.isFiltered">
-        {{ employee.name }}
-      </li>
-    </ng-container>
-  </ul>
-  
+<ng-container *ngFor="let employee of names">
+  <li *ngIf="!employee.isFiltered" (click)="addEmployeeToHeader(employee.name)" [ngClass]="{'removed-bg': employee.removed, 'checked-bg': employee.checked}">
+    {{ employee.name }}
+    <span (click)="toggleEmployee(employee)">
+      <i [ngClass]="{'fa': true, 'fa-times': !employee.checked, 'fas fa-check checked': employee.checked}"></i>
+    </span>
+  </li>
+</ng-container>

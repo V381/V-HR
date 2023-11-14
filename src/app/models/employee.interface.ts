@@ -22,6 +22,8 @@ export interface Employee {
   address: string;
   typeOfVacation?: VacationType[]; 
   isFiltered?: boolean;
+  removed?: boolean;
+  checked?: boolean;
   numberOfVacationDays: string;
   company: string;
   dateOfBirth: Date;

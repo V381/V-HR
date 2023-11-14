@@ -5,6 +5,7 @@ import { EmployeFormService } from 'src/app/employe-form.service';
 import { EmployeeListService } from 'src/app/employee-list-service.service';
 import { EmployeeListHeader } from 'src/app/employee-header-list-service.service';
 import { Employee } from 'src/app/models/employee.interface';
+import { ListHeaderUpdate } from 'src/app/list-header-update.service';
 
 interface EmployeeData {
   name: string;
@@ -37,8 +38,8 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     private employeeDataService: EmployeeDataService, 
     private employeHeaderService: EmployeHeaderService, 
     private employeeFormService: EmployeFormService,
+    private listHeaderUpdate: ListHeaderUpdate,
     private employeeListService: EmployeeListService) {
-      
     }
 
   ngOnInit(): void {
@@ -121,4 +122,16 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
       }
     });
   }    
+
+  toggleEmployee(employee: Employee) {
+    employee.checked = !employee.checked;
+  }
+  removeEmployee(name: string) {
+    this.names.forEach((val, i) => {
+      if (val.name === name) {
+        val.removed = true; 
+        val.checked = false; 
+      }
+    });
+  }
 }

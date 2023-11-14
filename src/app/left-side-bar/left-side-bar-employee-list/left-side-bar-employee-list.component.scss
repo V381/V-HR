@@ -12,10 +12,24 @@ li {
     border-bottom: 1px solid rgb(59, 58, 58);
     word-wrap: break-word;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
     &:hover {
         cursor: pointer;
         background-color: var(--main-panel-header-bg);
         border-left: 5px solid green;
+    }
+    span {
+        color: red;
+        display: flex;
+        width: auto;
+        align-items: center;
+        justify-content: right;
+        transition: 0.5s;
+        &:hover {
+            cursor: pointer;
+            color: lighten($color: red, $amount: 15%);
+        }
     }
 }
 
@@ -47,4 +61,21 @@ p {
     font-size: 2rem;
     margin-top: 1rem;
     font-weight: bold;
+}
+
+.removed {
+    background-color: darken($color: red, $amount: 30%)
+  }
+
+.checked {
+    background-color: inherit;
+    color: lightgreen
+}
+
+.removed-bg {
+    background-color: darken($color: red, $amount: 30%)
+}
+
+.checked-bg {
+    color: darkred;
 }

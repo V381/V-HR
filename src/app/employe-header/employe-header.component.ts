@@ -3,6 +3,7 @@ import { EmployeHeaderService } from '../employe-header.service';
 import { EmployeFormService } from '../employe-form.service';
 import { EmployeeListService } from '../employee-list-service.service';
 import { EmployeeListHeader } from '../employee-header-list-service.service';
+import { ListHeaderUpdate } from '../list-header-update.service';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { Employee } from '../models/employee.interface';
@@ -22,7 +23,8 @@ export class EmployeHeaderComponent implements OnDestroy {
     private employeeListService: EmployeeListService,
     private employeHeaderService: EmployeHeaderService,
     private employeeListHeader: EmployeeListHeader,
-    private employeeFormService: EmployeFormService
+    private employeeFormService: EmployeFormService,
+    private listHeaderUpdate: ListHeaderUpdate
   ) {
     this.employeeListHeader.employeeList$
       .pipe(takeUntil(this.ngUnsubscribe$))
@@ -36,6 +38,9 @@ export class EmployeHeaderComponent implements OnDestroy {
           this.employees.push(value);
           this.uniqueEmployeeIds.add(value.id);
         } 
+      });
+      this.listHeaderUpdate.removeEmployee$.subscribe(name => {
+        this.removeEmployeeFromHeader(name);
       });
   }
 
