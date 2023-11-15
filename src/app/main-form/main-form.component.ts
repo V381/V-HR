@@ -51,11 +51,7 @@ export class MainFormComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.employeeSubscription.unsubscribe();
   }
-
-  toggleRemovedState() {
-    this.store.dispatch(updateRemovedState({ removed: true }));
-  }
-
+  
   addTypeAndReason() {
   const currentEmployeeName = this.employee ? this.employee.name : undefined;
 

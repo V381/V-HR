@@ -2,7 +2,7 @@
 <input type="text" placeholder="Search for the employee..." [(ngModel)]="searchText" (input)="filterEmployees()">
 
 
-<ng-container *ngFor="let employee of names">
+<ng-container *ngFor="let employee of names;">
   <li *ngIf="!employee.isFiltered" (click)="addEmployeeToHeader(employee.name)" [ngClass]="{'removed-bg': employee.removed, 'checked-bg': employee.checked}">
     {{ employee.name }}
     <span (click)="toggleEmployee(employee)">

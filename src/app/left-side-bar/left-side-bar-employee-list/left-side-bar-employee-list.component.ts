@@ -125,11 +125,12 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
       }
     });
   }    
-
   toggleEmployee(employee: Employee) {
     employee.checked = !employee.checked;
     this.store.dispatch(updateRemovedState({ removed: employee.checked }));
   }
+  
+
 
   removeEmployee(name: string) {
     this.names.forEach((val, i) => {
