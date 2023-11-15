@@ -34,6 +34,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
   company: string = '';
   dateOfBirth: Date = new Date()
   comment: string = '';
+  showActiveEmployees = false;
 
   constructor(
     private employeeListHeader: EmployeeListHeader,
@@ -86,6 +87,18 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
         });
       }
     });
+  }
+
+  allEmployees() {
+    this.showActiveEmployees = false;
+  }
+
+  filterInactive() {
+    this.showActiveEmployees = true;
+  }
+
+  getFilteredEmployees() {
+    return this.showActiveEmployees ? this.names.filter(employee => employee.checked) : this.names;
   }
   
   private subscribeToNames(): void {

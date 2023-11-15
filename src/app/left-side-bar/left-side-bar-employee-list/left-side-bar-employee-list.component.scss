@@ -79,3 +79,42 @@ p {
 .checked-bg {
     color: darkred;
 }
+
+.filter {
+    margin-top: 0.8rem;
+}
+
+.active-employees {
+    background-color: var(--main-panel-header-bg);
+    color: white;
+    border: none;
+    transition: 0.5s;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    margin-right: 0.3rem;
+    &:hover {
+        cursor: pointer;
+        background-color: #349DA2;
+        transition: 0.5s;
+    }
+}
+
+.non-active-employees {
+    background-color: darkred;
+    color: white;
+    border: none;
+    transition: 0.5s;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($color: darkred, $amount: 15%);
+        transition: 0.5s;
+    }
+}
+
+.show-all {
+    @extend .active-employees;
+    margin-top: 0.5rem;
+    width: 50%;
+}
