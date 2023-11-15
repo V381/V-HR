@@ -3,6 +3,7 @@
     color: white;
     display: flex;
     justify-content: space-between;
+    transition: 0.5s;
 }
 
 .left-side {
@@ -53,6 +54,7 @@ textarea {
 
 .save {
     width: 50%;
+    transition: 0.5s;
     margin-right: 2rem;
     button {
         background-color: #255F67;
@@ -72,6 +74,7 @@ textarea {
 }
 
 .type-of-vacation {
+    transition: 0.5s;
     margin-top: 2rem;
     color: #fff;
     border: 0.2px solid var(--main-panel-input-border);
@@ -87,6 +90,7 @@ textarea {
     display: flex;
     width: 100%;
     justify-content: center;
+    transition: 0.5s;
     button {
         width: 50%;
         margin-top: 1rem;
@@ -135,4 +139,9 @@ textarea {
     font-size: 2rem;
     font-style: italic;
     color: #fff;
+}
+
+.removed {
+    opacity: 0.1;
+    transition: 0.5s;
 }

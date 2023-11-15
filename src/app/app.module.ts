@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { IntroDescriptionComponent } from './intro-description/intro-description.component';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/reducer';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { IntroDescriptionComponent } from './intro-description/intro-description
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({app: appReducer}, {})
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

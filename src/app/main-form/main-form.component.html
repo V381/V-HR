@@ -1,5 +1,5 @@
 <div *ngIf="checkIfDefined()" >
-  <div class="main-form-wrapper">
+  <div class="main-form-wrapper" [ngClass]="{ 'removed': (employee.checked) }">
     <div class="left-side">
         <div class="titles">
             <p><strong>Name:</strong></p>
@@ -36,17 +36,17 @@
     
     
   </div>
-  <div class="button-wrapper">
+  <div class="button-wrapper" [ngClass]="{ 'removed': (employee.checked) }">
     <div class="save">
-        <button>Save</button>
+        <button (click)="toggleRemovedState()">Save</button>
     </div>
   </div>
   <div>
-  <div class="type-of-vacation">
+  <div class="type-of-vacation" [ngClass]="{ 'removed': (employee.checked) }">
       <p>Reasons for absence</p>
   </div>
   
-  <div>
+  <div [ngClass]="{ 'removed': (employee.checked) }">
       <div class="button-wrapper">
         <div class="save m-top">
           <button (click)="addTypeAndReason()" [disabled]="!isNumberOfVacationDaysPopulated()">

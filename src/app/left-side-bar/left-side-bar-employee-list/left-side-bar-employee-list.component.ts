@@ -6,6 +6,8 @@ import { EmployeeListService } from 'src/app/employee-list-service.service';
 import { EmployeeListHeader } from 'src/app/employee-header-list-service.service';
 import { Employee } from 'src/app/models/employee.interface';
 import { ListHeaderUpdate } from 'src/app/list-header-update.service';
+import { Store } from '@ngrx/store';
+import { updateRemovedState } from 'src/app/store/actions';
 
 interface EmployeeData {
   name: string;
@@ -39,6 +41,7 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
     private employeHeaderService: EmployeHeaderService, 
     private employeeFormService: EmployeFormService,
     private listHeaderUpdate: ListHeaderUpdate,
+    private store: Store,
     private employeeListService: EmployeeListService) {
     }
 
@@ -125,7 +128,9 @@ export class LeftSideBarEmployeeListComponent implements EmployeeData{
 
   toggleEmployee(employee: Employee) {
     employee.checked = !employee.checked;
+    this.store.dispatch(updateRemovedState({ removed: employee.checked }));
   }
+
   removeEmployee(name: string) {
     this.names.forEach((val, i) => {
       if (val.name === name) {
