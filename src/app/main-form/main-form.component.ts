@@ -5,6 +5,10 @@ import { Employee } from '../models/employee.interface';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../models/AppState.interface';
+import { updateRemovedState } from 'src/app/store/actions';
+
 
 @Component({
   selector: 'app-main-form',
@@ -19,7 +23,8 @@ export class MainFormComponent implements OnDestroy {
     numberOfVacationDays: '',
     dateOfBirth: new Date(),
     company: '',
-    comment: ""
+    comment: "",
+    checked: false
   };
   employeeForm!: FormGroup;
   typeAndReasons: { [key: string]: TypeAndReason[] } = {};
@@ -29,19 +34,26 @@ export class MainFormComponent implements OnDestroy {
   totalDaysTaken: number = 0;
   totalRemainingDays: number = 0;
   showVacationDaysMessage: boolean = false;
-  
-  constructor(private employeeFormService: EmployeFormService, private fb: FormBuilder, private datePipe: DatePipe) {
+  removed: boolean = false;
+
+  constructor(private employeeFormService: EmployeFormService, private fb: FormBuilder, private store: Store<AppState>) {
     this.employeeSubscription = this.employeeFormService.sharedValue$.subscribe((val) => {
       this.employee = val as Employee;
     });
     this.employeeForm = this.fb.group({
       reasons: this.fb.array([]),
     });
-    
+    this.store.select(state => state.app.removed).subscribe(removed => {
+      this.employee.checked = removed;
+    });
   }
 
   ngOnDestroy(): void {
     this.employeeSubscription.unsubscribe();
+  }
+
+  toggleRemovedState() {
+    this.store.dispatch(updateRemovedState({ removed: true }));
   }
 
   addTypeAndReason() {

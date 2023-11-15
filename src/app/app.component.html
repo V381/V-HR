@@ -7,7 +7,7 @@
             <app-employe-header></app-employe-header>
         </div>
         <div class="main-form">
-            <app-main-form></app-main-form>
+            <app-main-form *ngIf="isThereEmploye"></app-main-form>
         </div>
     </div>
 </div>
