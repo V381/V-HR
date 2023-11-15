@@ -1,12 +1,16 @@
 <p class="name-of-employees">List of employees</p>
 <input type="text" placeholder="Search for the employee..." [(ngModel)]="searchText" (input)="filterEmployees()">
+<div class="filter">
+  <button class="active-employees" (click)="allEmployees()">All employees</button>
+  <button class="non-active-employees" (click)="filterInactive()">Non-active employees</button>
 
+</div>
 
-<ng-container *ngFor="let employee of names;">
-  <li *ngIf="!employee.isFiltered" (click)="addEmployeeToHeader(employee.name)" [ngClass]="{'removed-bg': employee.removed, 'checked-bg': employee.checked}">
+<div *ngFor="let employee of getFilteredEmployees()">
+  <li (click)="addEmployeeToHeader(employee.name)" [ngClass]="{'removed-bg': employee.removed, 'checked-bg': employee.checked}">
     {{ employee.name }}
     <span (click)="toggleEmployee(employee)">
       <i [ngClass]="{'fa': true, 'fa-times': !employee.checked, 'fas fa-check checked': employee.checked}" ></i>
     </span>
   </li>
-</ng-container>
+</div>
