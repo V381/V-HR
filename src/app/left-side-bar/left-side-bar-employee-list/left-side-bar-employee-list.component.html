@@ -2,7 +2,7 @@
 <input type="text" placeholder="Search for the employee..." [(ngModel)]="searchText" (input)="filterEmployees()">
 <div class="filter">
   <button class="active-employees" (click)="allEmployees()">All employees</button>
-  <button class="non-active-employees" (click)="filterInactive()">Non-active employees</button>
+  <button class="non-active-employees" (click)="filterInactive()" [disabled]="getFilteredEmployees().length === 0">Non-active employees</button>
 
 </div>
 
